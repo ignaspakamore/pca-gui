@@ -6,6 +6,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from mpl_toolkits.mplot3d import proj3d
+import os
 
 
 class PCAGUI():
@@ -86,6 +87,8 @@ class PCAGUI():
 			for x,y,label in zip(self.PincipalComponents[0],self.PincipalComponents[1], self.data_type):
 
 				plt.annotate(label, (x,y), textcoords="offset points", xytext=(0,10), ha='center') 
+		plt.xlabel('PC1')
+		plt.ylabel('PC2')
 				
 		plt.show()
 
@@ -97,11 +100,15 @@ class PCAGUI():
 
 		ax.scatter(self.PincipalComponents[:,0], self.PincipalComponents[:,1], self.PincipalComponents[:,2], 
 			color=[self.colour[r] for r in self.data_type], picker = True) 
+		ax.set_xlabel('PC1')
+		ax.set_ylabel('PC2')
+		ax.set_zlabel('PC3')
 
 		lables = []
 	
 		for key, val  in self.colour.items():
 			lables.append(mpatches.Patch(color=f'{val}', label=f'{key}'))
+
 
 
 		plt.legend(handles=lables)
@@ -234,7 +241,9 @@ class PCAGUI():
 				self.anotate = False
 
 			elif event == 'SAVE':
-				pass
+				path = os.path.dirname(self.file_dir)
+				np.savetxt(f'{path}/{self.n_componenets}_component_pca.csv', self.PincipalComponents, delimiter=',')
+
 			elif event == sg.WIN_CLOSED:  # if user closes window or clicks cancel
 				break
 
