@@ -75,22 +75,23 @@ class PCAGUI():
 
 
 	def plot2D(self):
+
 		
 		plt.scatter(self.PincipalComponents[:,0], self.PincipalComponents[:,1], color=[self.colour[r] for r in self.data_type])
 		lables = []
-	
+		
 		for key, val  in self.colour.items():
 			lables.append(mpatches.Patch(color=f'{val}', label=f'{key}'))
 		
 		plt.legend(handles=lables)
 
 		if self.anotate == True:
-			for x,y,label in zip(self.PincipalComponents[0],self.PincipalComponents[1], self.data_type):
+			for label, PCA in enumerate(self.PincipalComponents):
 
-				plt.annotate(label, (x,y), textcoords="offset points", xytext=(0,10), ha='center') 
+				plt.annotate(label, (PCA[0], PCA[1]), textcoords="offset points", xytext=(0,10), ha='center') 
+
 		plt.xlabel('PC1')
-		plt.ylabel('PC2')
-		fig.canvas.set_window_title('2D')
+		plt.ylabel('PC2')	
 				
 		plt.show()
 
@@ -231,13 +232,13 @@ class PCAGUI():
 					output.update(f'{self.n_componenets} component PCA calculated')
 				self.ERROR = ''
 
+				if values[3] == True:
+						self.anotate = True
 				
 			elif event == 'PLOT':
-				if values[3] == True:
-					self.anotate = True
-				elif self.n_componenets == 2:
+				if self.n_componenets == 2:
 					self.plot2D()
-				elif self.n_componenets == 3:
+				if self.n_componenets == 3:
 					self.plot3D()
 				if self.n_componenets == None:
 					output.update('PCA must be calculated first')
