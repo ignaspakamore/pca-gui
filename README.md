@@ -25,6 +25,7 @@ export main=path/to/pca-gui/PCA-gui.py
 
 python3 $main 
 ```
+Fisr of all, data file must be selected. Then the number of PCA components must be specified and calculation performed by hitting 'Caculate' button. The plot will be generated based on the number of components selected. 
 
 ![Algorithm schema](./pca-gui.png)
 
