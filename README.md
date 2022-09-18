@@ -4,14 +4,17 @@
 
 This program is designed to calculate and visualise principle component analysis calculations. 
 
-*The input is excel spredsheet saved in xlsx or csv format. 
+* The input is excel spredsheet saved in xlsx or csv format. 
 
 * Headers for the columns is not required. 
 
 * To specifie the type add column 'Type' and for colour column named 'Colour'.
 
-*   The colour name must be string. See https://matplotlib.org/stable/gallery/color/named_colors.html for colour names. 
+* The colour name must be string. See https://matplotlib.org/stable/gallery/color/named_colors.html for colour names. 
 
+* Program can save calculated PCA data into the csv file. 
+
+* Sample anotation by using mouse is possible in 3D plot. Index starts from 0!
 
 ## Execution
 
@@ -22,4 +25,6 @@ export main=path/to/pca-gui/PCA-gui.py
 
 python3 $main 
 ```
+
+
 
