@@ -20,6 +20,7 @@ class PCAGUI():
 		self.data_type = None
 		self.ERROR = ''
 		self.anotate = False
+		self.variance = None
 
 
 	def open_file(self):
@@ -180,6 +181,7 @@ class PCAGUI():
 	def reduce(self):
 		pca = PCA(n_components=self.n_componenets)
 		self.PincipalComponents = pca.fit_transform(self.data)
+		self.variance = pca.explained_variance_
 
 	def run(self):
 
@@ -194,7 +196,7 @@ class PCAGUI():
 					[sg.Text('Number of components')],
 					[sg.Checkbox('2',size = (4,2)), sg.Checkbox('3',size = (4,2))],
 					[sg.Checkbox('Anotate samples',size = (20,2))],
-					[sg.Button('Calculate'),sg.Button('PLOT'), sg.Button('SAVE')],
+					[sg.Button('Calculate'), sg.Button('PLOT'), sg.Button('SAVE')],
 					[output]]
 		# Create the Window
 		window = sg.Window('CSPX PCA-GUI', layout, size=(600, 200), font=30, finalize=True)
@@ -230,13 +232,13 @@ class PCAGUI():
 
 				
 			elif event == 'PLOT':
-				if values[3] == True:
+				if values[4] == True:
 					self.anotate = True
 				if self.n_componenets == 2:
 					self.plot2D()
 				elif self.n_componenets == 3:
 					self.plot3D()
-				else:
+				if self.n_componenets == None:
 					output.update('PCA must be calculated first')
 				self.anotate = False
 

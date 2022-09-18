@@ -1,4 +1,4 @@
-# pca-gui
+PCA-GUI
 
-Tested only on Mac. 
-Set the path to executable in PCA file. 
+
+
