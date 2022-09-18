@@ -91,7 +91,9 @@ class PCAGUI():
 				plt.annotate(label, (PCA[0], PCA[1]), textcoords="offset points", xytext=(0,10), ha='center') 
 
 		plt.xlabel('PC1')
-		plt.ylabel('PC2')	
+		plt.ylabel('PC2')
+
+		plt.get_current_fig_manager().canvas.set_window_title('2D')	
 				
 		plt.show()
 
