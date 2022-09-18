@@ -90,6 +90,7 @@ class PCAGUI():
 				plt.annotate(label, (x,y), textcoords="offset points", xytext=(0,10), ha='center') 
 		plt.xlabel('PC1')
 		plt.ylabel('PC2')
+		fig.canvas.set_window_title('2D')
 				
 		plt.show()
 
@@ -113,6 +114,7 @@ class PCAGUI():
 
 
 		plt.legend(handles=lables)
+		fig.canvas.set_window_title('3D')
 		
 
 
@@ -214,8 +216,7 @@ class PCAGUI():
 					self.n_componenets = 2
 				elif values[2] == True:
 					self.n_componenets = 3
-				elif values[3] != '':
-					self.n_componenets = int(values[3])
+				
 
 				self.open_file()
 				output.update(self.ERROR)
@@ -232,9 +233,9 @@ class PCAGUI():
 
 				
 			elif event == 'PLOT':
-				if values[4] == True:
+				if values[3] == True:
 					self.anotate = True
-				if self.n_componenets == 2:
+				elif self.n_componenets == 2:
 					self.plot2D()
 				elif self.n_componenets == 3:
 					self.plot3D()
