@@ -5,6 +5,8 @@ This program is designed to calculate and visualise principle component analysis
 
 The input is excel spredsheet saved in xlsx or csv format. 
 
+Headers for the columns is not needed. To specifie the type add column 'Type' and for colour column named 'Colour'. The colour name must be string. See https://matplotlib.org/stable/gallery/color/named_colors.html for colour names. 
+
 
 ## Execution
 
