@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export main=/Users/ignaspakamore/Documents/GitHub/pca-gui/PCA-gui.py
+export main=path/to/pca-gui/PCA-gui.py
 
 python3 $main 
