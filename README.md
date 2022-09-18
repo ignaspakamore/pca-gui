@@ -14,7 +14,7 @@ This program is designed to calculate and visualise principle component analysis
 
 * Program can save calculated PCA data into the csv file. 
 
-* Sample annotation by using mouse is feasible in 3D plot. Index starts from 0!
+* Sample annotation by using mouse is feasible in 3D plot. For 2D data index is displayed on the plot. Index starts from 0!
 
 ## Execution
 
@@ -25,7 +25,7 @@ export main=path/to/pca-gui/PCA-gui.py
 
 python3 $main 
 ```
-Fisr of all, data file must be selected. Then the number of PCA components must be specified and calculation performed by hitting 'Caculate' button. The plot will be generated based on the number of components selected. 
+Fisr of all, data file must be selected. Then the number of PCA components must be specified and calculation performed by hitting 'Caculate' button. The plot will be generated based on the number of components selected. Annotation must be specified before calculation. 
 
 ![Algorithm schema](./pca-gui.png)
 
