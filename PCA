@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Set path to the PCA-gui file
 export main=path/to/pca-gui/PCA-gui.py
 
 python3 $main 
