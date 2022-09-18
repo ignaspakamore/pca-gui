@@ -26,5 +26,5 @@ export main=path/to/pca-gui/PCA-gui.py
 python3 $main 
 ```
 
-![Algorithm schema](.pca-gui.png)
+![Algorithm schema](./pca-gui.png)
 
