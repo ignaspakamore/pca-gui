@@ -64,8 +64,11 @@ class PCAGUI():
 			for idx, tpe in enumerate(self.data_type):
 				self.colour[tpe] = data_type_colour[idx]
 			self.data = self.data.drop('Colour', 1)
+
 		else:
-			data_type_colour = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black', 'white']
+
+			data_type_colour = np.linspace(0, 1, self.data_type.nunique())
+		
 			for i in range(self.data_type.nunique()):
 				self.colour[self.data_type.unique()[i]] = data_type_colour[i]
 
@@ -77,7 +80,7 @@ class PCAGUI():
 	def plot2D(self):
 
 		
-		plt.scatter(self.PincipalComponents[:,0], self.PincipalComponents[:,1], color=[self.colour[r] for r in self.data_type])
+		plt.scatter(self.PincipalComponents[:,0], self.PincipalComponents[:,1], c=[self.colour[r] for r in self.data_type])
 		lables = []
 		
 		for key, val  in self.colour.items():
@@ -104,7 +107,7 @@ class PCAGUI():
 		ax = fig.add_subplot(111, projection='3d')
 
 		ax.scatter(self.PincipalComponents[:,0], self.PincipalComponents[:,1], self.PincipalComponents[:,2], 
-			color=[self.colour[r] for r in self.data_type], picker = True) 
+			c=[self.colour[r] for r in self.data_type]) 
 		ax.set_xlabel('PC1')
 		ax.set_ylabel('PC2')
 		ax.set_zlabel('PC3')
@@ -113,7 +116,6 @@ class PCAGUI():
 	
 		for key, val  in self.colour.items():
 			lables.append(mpatches.Patch(color=f'{val}', label=f'{key}'))
-
 
 
 		plt.legend(handles=lables)
